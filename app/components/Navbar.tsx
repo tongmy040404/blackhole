@@ -15,16 +15,16 @@ export default function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="fixed inset-x-0 top-4 z-50 px-4">
-      <nav className="mx-auto flex max-w-3xl items-center justify-between rounded-full border border-white/10 bg-black/50 px-6 py-3 shadow-lg shadow-black/30 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-4 z-50 px-3 sm:px-4">
+      <nav className="mx-auto flex max-w-3xl items-center justify-between gap-3 rounded-full border border-white/10 bg-black/50 px-4 py-2.5 shadow-lg shadow-black/30 backdrop-blur-md sm:px-6 sm:py-3">
         <Link
           href="/"
-          className="text-sm font-semibold tracking-[0.2em] text-white uppercase neon-link"
+          className="shrink-0 text-xs font-semibold tracking-[0.15em] text-white uppercase neon-link sm:text-sm sm:tracking-[0.2em]"
         >
           TONG
         </Link>
 
-        <ul className="flex items-center gap-6 sm:gap-8">
+        <ul className="flex items-center gap-3.5 sm:gap-8">
           {NAV_LINKS.map((link) => {
             const isActive =
               link.href === "/"
@@ -35,7 +35,7 @@ export default function Navbar() {
               <li key={link.href}>
                 <Link
                   href={link.href}
-                  className={`text-sm tracking-wide transition-all duration-300 neon-link ${
+                  className={`text-xs tracking-wide transition-all duration-300 neon-link sm:text-sm ${
                     isActive ? "text-white" : "text-white/60"
                   }`}
                 >

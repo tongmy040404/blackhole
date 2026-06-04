@@ -154,7 +154,7 @@ export default function Home() {
       {/* 前景 UI：绝对居中 */}
       <div className="absolute inset-0 z-30 flex flex-col items-center justify-center px-6 text-center uppercase">
         <h1
-          className="text-6xl font-bold tracking-[0.15em] text-white sm:text-8xl"
+          className="text-5xl font-bold tracking-[0.08em] text-white sm:text-8xl sm:tracking-[0.15em]"
           style={{
             textShadow:
               "0 0 6px rgba(255,255,255,0.45), 0 0 18px rgba(255,255,255,0.25)",
