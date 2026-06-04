@@ -1,8 +1,8 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #000000;
+  --foreground: #ffffff;
 }
 
 @theme inline {
@@ -12,15 +12,139 @@
   --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
-
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+/* White neon glow on hover */
+.neon-link {
+  transition: color 0.3s ease, text-shadow 0.3s ease;
+}
+
+.neon-link:hover {
+  color: #ffffff;
+  text-shadow:
+    0 0 4px rgba(255, 255, 255, 0.9),
+    0 0 12px rgba(255, 255, 255, 0.7),
+    0 0 24px rgba(255, 255, 255, 0.5);
+}
+
+/* ================================================================== */
+/*  70 年代老式 CRT 电视滤镜（仅主页使用 .crt-overlay）                */
+/* ================================================================== */
+
+.crt-overlay {
+  position: fixed;
+  inset: 0;
+  pointer-events: none; /* 穿透点击，不影响下方交互 */
+  /* 扫描线：密集的半透明横向黑线 */
+  background:
+    repeating-linear-gradient(
+      to bottom,
+      rgba(0, 0, 0, 0) 0px,
+      rgba(0, 0, 0, 0) 1px,
+      rgba(0, 0, 0, 0.28) 1px,
+      rgba(0, 0, 0, 0.28) 3px
+    );
+  /* 微弱不规则闪烁，模拟电压不稳 */
+  animation: crt-flicker 5s infinite steps(60);
+  will-change: opacity;
+}
+
+/* 动态噪点（底噪）层 */
+.crt-overlay::before {
+  content: "";
+  position: absolute;
+  inset: -50%;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.06;
+  animation: crt-noise 0.4s steps(4) infinite;
+  will-change: transform;
+}
+
+/* 屏幕暗角（中心亮、四周暗） */
+.crt-overlay::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    ellipse at center,
+    rgba(0, 0, 0, 0) 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+@keyframes crt-noise {
+  0% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(-3%, 2%);
+  }
+  50% {
+    transform: translate(2%, -3%);
+  }
+  75% {
+    transform: translate(-2%, -2%);
+  }
+  100% {
+    transform: translate(3%, 3%);
+  }
+}
+
+/* 极小幅度的不规则闪烁，不影响阅读 */
+@keyframes crt-flicker {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0.97;
+  }
+  18% {
+    opacity: 1;
+  }
+  29% {
+    opacity: 0.95;
+  }
+  37% {
+    opacity: 1;
+  }
+  52% {
+    opacity: 0.98;
+  }
+  68% {
+    opacity: 0.96;
+  }
+  73% {
+    opacity: 1;
+  }
+  91% {
+    opacity: 0.97;
+  }
+}
+
+/* 纯黑白电视：无 RGB 色差，仅冷峻白色辉光 */
+.crt-text {
+  text-shadow:
+    0 0 8px rgba(255, 255, 255, 0.6),
+    0 0 20px rgba(255, 255, 255, 0.35);
+}
+
+/* 终端光标闪烁 */
+.cursor-blink {
+  animation: cursor-blink 1.05s steps(2, start) infinite;
+}
+
+@keyframes cursor-blink {
+  0%,
+  50% {
+    opacity: 1;
+  }
+  50.01%,
+  100% {
+    opacity: 0;
+  }
 }

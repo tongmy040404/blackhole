@@ -36,6 +36,9 @@ yarn-error.log*
 # vercel
 .vercel
 
+# 大体积视频文件（请托管到外部平台，不要提交进仓库）
+/public/portfolio/videos/
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
