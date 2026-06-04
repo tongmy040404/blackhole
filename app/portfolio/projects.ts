@@ -418,17 +418,6 @@ export const PROJECTS: Project[] = [
     ],
   },
   {
-    slug: "work-6",
-    title: "AIGC 作品",
-    description: "",
-    icon: Layers,
-    image: "/portfolio/work-6.jpg",
-    videos: [
-      "/portfolio/videos/work-6-1.mp4",
-      "/portfolio/videos/work-6-2.mp4",
-    ],
-  },
-  {
     slug: "work-7",
     title: "丝痕",
     description:
@@ -438,7 +427,6 @@ export const PROJECTS: Project[] = [
     video: "/portfolio/videos/work-7.mp4",
     docTitle: "Gallery",
     doc: [
-      { type: "image", src: "/portfolio/work-7/fig-1.jpg" },
       { type: "image", src: "/portfolio/work-7/fig-2.jpg" },
       { type: "image", src: "/portfolio/work-7/fig-3.jpg" },
       { type: "image", src: "/portfolio/work-7/fig-4.jpg" },
@@ -452,6 +440,18 @@ export const PROJECTS: Project[] = [
       { type: "image", src: "/portfolio/work-7/fig-12.jpg" },
       { type: "image", src: "/portfolio/work-7/fig-13.jpg" },
       { type: "image", src: "/portfolio/work-7/fig-14.jpg" },
+      { type: "image", src: "/portfolio/work-7/fig-1.jpg" },
+    ],
+  },
+  {
+    slug: "work-6",
+    title: "AI 影像",
+    description: "AIGC 作品汇总",
+    icon: Layers,
+    image: "/portfolio/work-6.jpg",
+    videos: [
+      "/portfolio/videos/work-6-1.mp4",
+      "/portfolio/videos/work-6-2.mp4",
     ],
   },
 ];
