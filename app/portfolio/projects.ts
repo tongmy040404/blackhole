@@ -40,7 +40,7 @@ export const PROJECTS: Project[] = [
       "以历史人物徐来女士为创作原型，融合前沿数字人技术与艺术叙事，打造了一部兼具历史深度与视觉表现力的叙事短片——《清风徐来》。",
     icon: Cpu,
     image: "/portfolio/work-1.jpg",
-    video: "/portfolio/videos/work-1.mp4",
+    // TODO: 作品 1 待补 B 站 BV 号，例如 bilibili: ["BVxxxx"]
     netdiskUrl: "https://pan.baidu.com/s/1OcvFhGqTEPWsxP7i0OdAPQ?pwd=xkc5",
     netdiskCode: "xkc5",
     doc: [

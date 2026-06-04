@@ -36,8 +36,14 @@ yarn-error.log*
 # vercel
 .vercel
 
-# 大体积视频文件（请托管到外部平台，不要提交进仓库）
-/public/portfolio/videos/
+# 视频：默认忽略整个目录，仅放行已压缩的小视频（<25MB，可部署到 Cloudflare）
+/public/portfolio/videos/*
+!/public/portfolio/videos/work-2.mp4
+!/public/portfolio/videos/work-3.mp4
+!/public/portfolio/videos/work-5.mp4
+!/public/portfolio/videos/work-6-1.mp4
+!/public/portfolio/videos/work-6-2.mp4
+!/public/portfolio/videos/work-7.mp4
 
 # typescript
 *.tsbuildinfo
