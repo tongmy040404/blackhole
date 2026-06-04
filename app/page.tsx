@@ -180,6 +180,17 @@ export default function Home() {
           </Link>
         </div>
       </div>
+
+      {/* 页面底部中文名 */}
+      <p
+        className="absolute bottom-6 left-1/2 z-30 -translate-x-1/2 text-sm tracking-[0.4em] text-white/80 sm:text-base"
+        style={{
+          textShadow:
+            "0 0 6px rgba(255,255,255,0.45), 0 0 18px rgba(255,255,255,0.25)",
+        }}
+      >
+        佟明翼
+      </p>
     </div>
   );
 }
