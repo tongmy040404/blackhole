@@ -1,14 +1,6 @@
 import Link from "next/link";
-import { PenLine } from "lucide-react";
-
-type Post = {
-  date: string;
-  title: string;
-  excerpt: string;
-  href: string;
-};
-
-const POSTS: Post[] = [];
+import { ArrowRight, PenLine } from "lucide-react";
+import { POSTS } from "./posts";
 
 export default function BlogPage() {
   return (
@@ -42,12 +34,20 @@ export default function BlogPage() {
           /* 文章列表 */
           <div className="flex flex-col space-y-12">
             {POSTS.map((post) => (
-              <Link key={post.title} href={post.href} className="group block">
+              <Link
+                key={post.slug}
+                href={`/blog/${post.slug}`}
+                className="group block"
+              >
                 <span className="font-mono text-xs text-zinc-500">
                   {post.date}
                 </span>
-                <h2 className="mt-2 text-2xl font-bold leading-tight tracking-tight text-white transition-transform duration-300 group-hover:translate-x-2 sm:text-3xl">
+                <h2 className="mt-2 flex items-start text-2xl font-bold leading-tight tracking-tight text-white transition-transform duration-300 group-hover:translate-x-2 sm:text-3xl">
                   {post.title}
+                  <ArrowRight
+                    className="ml-3 mt-1 h-6 w-6 shrink-0 -translate-x-4 text-white opacity-0 transition-all duration-300 group-hover:translate-x-0 group-hover:opacity-100"
+                    strokeWidth={1.75}
+                  />
                 </h2>
                 <p className="mt-3 max-w-2xl leading-relaxed text-zinc-400 transition-transform duration-300 group-hover:translate-x-2">
                   {post.excerpt}
@@ -62,9 +62,7 @@ export default function BlogPage() {
             <p className="mt-6 font-mono text-xs uppercase tracking-[0.3em] text-zinc-500">
               No Entries Yet
             </p>
-            <p className="mt-3 text-sm text-zinc-600">
-              暂无内容，敬请期待。
-            </p>
+            <p className="mt-3 text-sm text-zinc-600">暂无内容，敬请期待。</p>
           </div>
         )}
       </div>
